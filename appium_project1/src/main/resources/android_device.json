@@ -1,0 +1,9 @@
+{
+	"device1":
+	{
+		"platformName": "Android",
+		"appium:platformVersion": "12",
+		"appium:deviceName": "Pixel 7",
+		"appium:automationName": "UiAutomator2"
+	 }
+}
