@@ -1,0 +1,10 @@
+{
+	"device1":
+	{
+		"platformName": "Android",
+		"platformVersion": "12",
+		"deviceName": "Pixel 7",
+		"automationName": "UiAutomator2",
+		"autoGrantPermissions": true
+	 }
+}

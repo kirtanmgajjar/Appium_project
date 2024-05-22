@@ -38,7 +38,7 @@ public class AppiumTest1 {
 		options.setCapability("appium:platformName", "Android");
 		options.setCapability("appium:platformVersion", "12.0");
 		
-		options.setCapability("app", System.getProperty("user.dir")+"/src/main/resources/MyDemoApp.apk");
+		options.setCapability("appium:app", System.getProperty("user.dir")+"/src/main/resources/MyDemoApp.apk");
 		AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5000));
 //		driver.findElement(AppiumBy.accessibilityId("Preference")).click();

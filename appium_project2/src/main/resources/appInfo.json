@@ -1,0 +1,9 @@
+{
+	"My Demo App":
+	{
+		"appPackage":"com.saucelabs.mydemoapp.rn",
+		"appActivity":".MainActivity",
+		"bundleId":"com.saucelabs.mydemoapp.rn",
+		"app":"MyDemoApp.apk"	
+	}
+}

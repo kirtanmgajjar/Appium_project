@@ -51,7 +51,9 @@ options.setCapability("appium:deviceName","Pixel 7");
 options.setCapability("appium:platformName", "Android");
 options.setCapability("appium:platformVersion", "12.0");
 
-options.setCapability("app", System.getProperty("user.dir")+"/src/main/resources/Wdio_app.apk");
+//options.setCapability("app", System.getProperty("user.dir")+"/src/main/resources/Wdio_app.apk");
+options.setCapability("appium:appPackage", "com.saucelabs.mydemoapp.rn");
+options.setCapability("appium:appActivity", ".MainActivity");
 driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -73,19 +75,19 @@ wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 //		scrollWithPlugin(wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("Swipe-screen")))),"up");
 		swipe(el,"left");
 		scroll("up");
-//		driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
-//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("Drag")))).click();
-//		String[] loc = {"l","c","r"};
-//		for(int i=0;i<3;i++) {
-//			for(int j=1;j<=3;j++) {
-//				WebElement source = wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("drag-"+loc[i]+j))));
-//				WebElement destination = wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("drop-"+loc[i]+j))));
-//				dragAndDropWithPlugin(source, destination);
-//			}
-//		}
+		driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("Drag")))).click();
+		String[] loc = {"l","c","r"};
+		for(int i=0;i<3;i++) {
+			for(int j=1;j<=3;j++) {
+				WebElement source = wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("drag-"+loc[i]+j))));
+				WebElement destination = wait.until(ExpectedConditions.visibilityOf(driver.findElement(AppiumBy.accessibilityId("drop-"+loc[i]+j))));
+				dragAndDropWithPlugin(source, destination);
+			}
+		}
 		
 //		goToRecentApp();
-		switchApps("right");
+//		switchApps("right");
 	}
 	
 	@Ignore

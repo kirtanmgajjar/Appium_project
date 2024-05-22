@@ -2,6 +2,7 @@ package baseClass;
 
 import java.io.File;
 import java.io.InputStream;
+import java.time.Duration;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -9,7 +10,7 @@ import org.testng.annotations.BeforeSuite;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import pages.Catalog;
+import pages.CatalogPage;
 import utilities.DriverSetup;
 import utilities.JSONReader;
 import utilities.PropertiesFileReader;
@@ -23,7 +24,6 @@ public class BaseClass {
 	private JSONReader jReader;
 	private AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\2234444\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
 			.withIPAddress("127.0.0.1").usingPort(4723).build();
-	protected Catalog catalog;
 	
 	@BeforeSuite
 	public void setup() throws Exception
@@ -40,8 +40,8 @@ public class BaseClass {
 		jReader = new JSONReader(devices);
 		service.start();
 		driver = DriverSetup.setupDriver(OS, jReader.getDeviceInfo(device),app);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		System.out.println(driver.getCapabilities());
-		catalog = new Catalog(driver);
 	}
 	
 	

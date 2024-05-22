@@ -1,18 +1,13 @@
 package utilities;
 
-import java.io.File;
 import java.net.URL;
 import java.util.Map;
-
-import org.openqa.selenium.WebDriver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 
 public class DriverSetup {
@@ -45,11 +40,6 @@ public class DriverSetup {
 			}
 			options.setCapability("appium:app", System.getProperty("user.dir")+"/src/main/resources/"+app);
 			driver = new IOSDriver(new URL("http://127.0.0.1:4723"),options);
-		}
-		
-		else
-		{
-			throw new Exception();
 		}
 		
 		return driver;
